@@ -1,0 +1,10 @@
+﻿LIBRARY
+EXPORTS
+
+ELoggerInit
+ELoggerFree
+
+ELoggerSucc
+ELoggerWarning
+ELoggerFailure
+ELoggerDebug
