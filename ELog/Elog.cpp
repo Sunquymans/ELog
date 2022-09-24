@@ -165,6 +165,26 @@ void WINAPI ELoggerDebug(const char* format)
     }
 }
 
+void WINAPI ELoggerCustom(const char* type, const char* format, const unsigned char color)
+{
+    if (format != nullptr)
+    {
+        va_list argList;
+        va_start(argList, format);
+        size_t length = _vscprintf(format, argList) + 1;
+        auto buffer = new char[length];
+        vsprintf_s(buffer, length, format, argList);
+
+        size_t byteBufferLength = _vscprintf(type, argList) + 1;
+        auto typeBuffer = new char[byteBufferLength];
+        sprintf(typeBuffer, "<%s> ", type);
+
+        Print(buffer, typeBuffer, color);
+        va_end(argList);
+        delete[]buffer;
+    }
+}
+
 void WINAPI ELoggerEmpty()
 {
     const char* buffer = nullptr;

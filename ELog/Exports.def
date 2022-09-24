@@ -8,4 +8,5 @@ ELoggerSucc
 ELoggerWarning
 ELoggerFailure
 ELoggerDebug
+ELoggerCustom
 ELoggerEmpty
